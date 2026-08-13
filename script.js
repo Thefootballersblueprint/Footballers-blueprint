@@ -31,3 +31,40 @@ if (signupForm) {
     }
   });
 }
+
+const carouselTrack = document.getElementById("carousel-track");
+
+if (carouselTrack) {
+  const slides = Array.from(carouselTrack.children);
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+  const dotsWrap = document.getElementById("carousel-dots");
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Go to story ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function render() {
+    carouselTrack.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+    prevBtn.disabled = slides.length <= 1;
+    nextBtn.disabled = slides.length <= 1;
+  }
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    render();
+  }
+
+  prevBtn.addEventListener("click", () => goTo(current - 1));
+  nextBtn.addEventListener("click", () => goTo(current + 1));
+
+  render();
+}

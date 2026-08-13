@@ -189,11 +189,38 @@
     </div>
   </section>
 
-  <section class="stories-teaser">
+  <section id="success-stories" class="stories-teaser">
     <div class="wrap stories-teaser-inner">
       <h2>Real Results</h2>
       <p class="section-sub">See how players in the community have developed their game.</p>
-      <a class="btn btn-primary btn-lg" href="success-stories.html">View Success Stories</a>
+
+      <div class="carousel" id="stories-carousel">
+        <button type="button" class="carousel-arrow carousel-arrow-left" id="carousel-prev" aria-label="Previous story">&#8592;</button>
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carousel-track">
+
+            <article class="story-card carousel-slide">
+              <img src="images/success-stories/jaxon.jpg" alt="Jaxon, a young footballer in The Footballers Blueprint community" />
+              <div class="story-card-body">
+                <span class="story-badge">Signed with Fulham Academy</span>
+                <h3>Jaxon — From The Footballers Blueprint to Fulham Academy</h3>
+                <p class="story-quote">
+                  "The Footballers' Blueprint became part of our weekly routine. The position-specific
+                  training, advice and guidance have been brilliant. He's now part of Fulham Academy."
+                </p>
+              </div>
+            </article>
+
+            <!-- Add future success stories here as additional .carousel-slide.story-card articles -->
+
+          </div>
+        </div>
+
+        <button type="button" class="carousel-arrow carousel-arrow-right" id="carousel-next" aria-label="Next story">&#8594;</button>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
     </div>
   </section>
 
