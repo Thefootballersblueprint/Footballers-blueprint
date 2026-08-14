@@ -1,4 +1,5 @@
 const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeGb542cQbc69Os1tCDwvO400-iaq2u5dWi4uhiuwf_9Msr4g/formResponse";
+const SKOOL_URL = "https://www.skool.com/the-footballers-blueprint-8160/about";
 
 const signupForm = document.getElementById("signup-form");
 
@@ -19,13 +20,15 @@ if (signupForm) {
         mode: "no-cors",
         body: formData,
       });
-      status.textContent = "Thanks — we've got your details and will be in touch.";
+      status.textContent = "Thanks — redirecting you to Skool to start your free 7-day trial…";
       status.classList.add("success");
       signupForm.reset();
+      setTimeout(() => {
+        window.location.href = SKOOL_URL;
+      }, 1500);
     } catch (err) {
       status.textContent = "Something went wrong. Please try again.";
       status.classList.add("error");
-    } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit";
     }
