@@ -493,7 +493,7 @@ a { color: inherit; text-decoration: none; }
   .carousel-arrow { top: 110px; width: 36px; height: 36px; font-size: 15px; }
 }
 
-/* Success story cards (shared with success-stories.html) */
+/* Success story cards */
 .story-card {
   display: grid;
   grid-template-columns: 280px 1fr;
