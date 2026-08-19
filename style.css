@@ -13,6 +13,19 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 body {
   background: var(--bg);
   color: var(--white);
@@ -159,6 +172,28 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto 36px;
 }
 .hero-actions { display: flex; justify-content: center; }
+.trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lgrey);
+  letter-spacing: 0.01em;
+}
+.trust-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--grey);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .trust-bar { font-size: 12px; gap: 8px; }
+}
 
 /* How it works */
 .how-it-works {
@@ -233,7 +268,25 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.card-icon svg { width: 24px; height: 24px; }
 .card h3 {
   font-size: 17px;
   margin-bottom: 10px;
